@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/main.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    
+    <%- include('nav.html')%>
+    
+
+      <div class="container">
+        <h4 class="ml-2 my-3">검색결과</h4>
+
+        <ul class="list-group">
+          <% for(var i = 0; i < posts.length; i++){ %>
+          <li class="list-group-item">
+            <p>글번호 : <%= posts[i]._id %></p>
+            <h5>할 일 제목 : <%= posts[i].오늘의할일 %></h5>
+            <p>할 일 마감날짜 : <%= posts[i].날짜 %></p>
+            <button type="button" class="btn btn-danger delete" data-id=" <%= posts[i]._id %> ">삭제</button>
+          </li>
+          <% }%>
+        </ul>
+
+      </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <!-- jQuery에 slim 버전을 지워야 ajax 등 다양한 기능을 사용할 수 있다.-->
+    <script>
+      $('#search').click(function(){
+        var 입력한값 = $('#search-input').val() //input 에 유저가 입력한 값
+        window.location.replace('/search?value=' + 입력한값) //url을 바꿔주세요
+      })
+      
+      var 자료 = {이름 : '값', 이름2: '값2'}
+      $.param(자료)
+
+      $(폼태그).serialize();
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+  </body>
+</html>
